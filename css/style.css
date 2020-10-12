@@ -126,7 +126,7 @@ height: 60px;
 /* -HEADER- */
 
 header .navbar-brand img {
-  width: 40px;
+  width: 180px;
   height: auto;
 }
 
@@ -136,20 +136,16 @@ header .navbar-dark .navbar-nav .nav-link {
 
 @media (min-width: 768px) {
   header .navbar-brand img {
-      width: 50px;
+      width: 210px;
   }
 }
 @media (min-width: 992px) {
   header .navbar-brand img {
-      width: 60px;
+      width: 230px;
   }
   header .dropdown .dropdown-menu{
       min-width: 300px;
   }
-}
-
-header .navbar-brand{
-  box-shadow: var(--box-shadow);
 }
 
 header .nav-link:hover{
@@ -166,18 +162,13 @@ flex-direction: row;
 z-index: 999;
 }
 
-/* -RECOMENDADOS- */
+/* -RECOMENDADOS Y NOVEDADES- */
 
 #txt{
   color: var(--color-1);
 }
 
-
-#recomendados .card {
-  box-shadow: var(--box-shadow);
-}
-
-#recomendados .card .card-body {
+#cardslibros .card .card-body {
   text-align: justify;
   min-height: 232px;
   display: flex;
@@ -186,16 +177,33 @@ z-index: 999;
   justify-content: space-between;
 }
 
-#recomendados .card .card-body h5 {
+#cardslibros .card .card-body h5 {
   text-align: center;
 }
 
-#recomendados .card img {
-  width: 100%;
-  height: 280px;
+#cardslibros .card img {
+ 
   overflow: hidden;
   object-fit: fill;
 }
+
+#cardslibros .card .card-body:hover{
+  color: var(--color-2);
+}
+
+.imagenalto{
+  margin-top: -30px;
+}
+
+.zoom{
+  transition: transform .4s;
+
+}
+.zoom:hover {
+  -webkit-transform: scale(1.3); 
+  transform: scale(1.1); 
+}
+
 
 /* -FOOTER- */
 
