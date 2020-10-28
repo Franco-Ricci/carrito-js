@@ -114,7 +114,7 @@ height: 60px;
 }
 @media (min-width: 992px) {
   #carousel .carousel-item {
-      height: 550px;
+      height: 450px;
   }
 }
 
@@ -196,7 +196,7 @@ z-index: 999;
 }
 
 .zoom{
-  transition: transform .4s;
+  transition: transform .3s;
 
 }
 .zoom:hover {
