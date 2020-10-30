@@ -39,8 +39,9 @@ else{
 //preventdefault 
 function mostrar(event){  
  event.preventDefault() 
- let persona = new Usuarionuevo(nombre.value,apellido.value, email.value,contraseña.value, contraseñaconfirm.value, opciones.value,sexo.value,terminos.checked)
+ let persona = new Usuarionuevo(nombre.value.toUpperCase(),apellido.value.toUpperCase(), email.value.toLowerCase(),contraseña.value, contraseñaconfirm.value, opciones.value,sexo.value,terminos.checked)
  //limpiar campos 
+   console.log(persona)
  nombre.value = "";
  apellido.value ="";
  email.value = "";
