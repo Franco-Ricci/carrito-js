@@ -54,35 +54,35 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form>
+                        <form onsubmit="mostrar(event)">
                           <div class="form-row">
                             <div class="col">
                               <label>Nombre</label>
-                              <input type="text" class="form-control" placeholder="Ingrese su nombre" required>
+                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
                             </div>
                             <div class="col">
                               <label>Apellido</label>
-                              <input type="text" class="form-control" placeholder="Ingrese su apellido" required>
+                              <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required>
                             </div>
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-12 mt-3">
                               <label>Email</label>
-                              <input type="email" class="form-control" id="inputEmail4" placeholder="example@gmail.com" required>
+                              <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
                             </div>
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-6">
                               <label>Contraseña</label>
-                              <input type="password" class="form-control" id="inputCity" placeholder="Ingrese su contraseña" required>
+                              <input type="password" class="form-control" id="contraseña" placeholder="Ingrese su contraseña" required>
                             </div>
                             <div class="form-group col-md-6">
                               <label>Confirma Contraseña</label>
-                              <input type="password" class="form-control" id="inputAddress2" placeholder="Confirme su contraseña" required>
+                              <input type="password" class="form-control" id="contraseñaconfirm" placeholder="Confirme su contraseña" required>
                             </div>
                             <div class="form-group col-md-6">
                               <label for="inputState">Provincia</label>
-                              <select id="inputState" class="form-control" required>
+                              <select id="opciones" class="form-control" required>
                                 <option selected>Selecciona...</option>
                                 <option>Buenos Aires</option>
                                 <option>Catamarca</option>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="form-group col-md-6">
                               <label for="inputState">Sexo:</label>
-                              <select id="inputState" class="form-control" required>
+                              <select id="sexo" class="form-control" required>
                                 <option selected>Selecciona...</option>
                                 <option>Masculino</option>
                                 <option>Femenino</option>
@@ -107,7 +107,7 @@
                           </div>
                           <div class="form-group mt-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <input class="form-check-input" type="checkbox" id="terminos">
                               <label class="form-check-label" for="gridCheck">
                                 <p style="font-size: small;" >Quiero recibir más información vía email sobre los ultimos lanzamientos y novedades
                                 </p>
@@ -116,7 +116,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="submit" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-outline-danger">Registrarse</button>
+                            <button type="submit" class="btn btn-outline-danger" onclick="valcontraseña()">Registrarse</button>
                           </div>
                         </form>
                       </div>
@@ -206,7 +206,8 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="items"></tbody>
+            
                 </table>
                  
           
@@ -417,6 +418,7 @@
     crossorigin="anonymous"
   ></script>
   <script src="carrito.js"></script>
+  <script src="usuarios.js"></script>
 
 </body>
 

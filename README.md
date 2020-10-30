@@ -1,5 +1,5 @@
 # LIBRERIA BRADBURY
-**Proyecto Nº2 - Grupo 2 - Rolling Code School - FullStack**
+**Proyecto Nº2 - Grupo 2 - RollingCode School - FullStack**
 
 **Integrantes:**
   - Alejandro Paz
