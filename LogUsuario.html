@@ -42,129 +42,15 @@
               <li class="nav-item">
                 <a class="nav-link text-white" href="#libronov">Novedades</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white"data-toggle="modal" data-target="#exampleModal">Regístrate</a>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ingresa tus datos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form onsubmit="mostrar(event)">
-                          <div class="form-row">
-                            <div class="col">
-                              <label>Nombre</label>
-                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
-                            </div>
-                            <div class="col">
-                              <label>Apellido</label>
-                              <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="form-group col-md-12 mt-3">
-                              <label>Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label>Contraseña</label>
-                              <input type="password" class="form-control" id="contraseña" placeholder="Ingrese su contraseña" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>Confirma Contraseña</label>
-                              <input type="password" class="form-control" id="contraseñaconfirm" placeholder="Confirme su contraseña" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label for="inputState">Provincia</label>
-                              <select id="opciones" class="form-control" required>
-                                <option selected>Selecciona...</option>
-                                <option>Buenos Aires</option>
-                                <option>Catamarca</option>
-                                <option>Chubut</option>
-                                <option>Córdoba</option>
-                                <option>Jujuy</option>
-                                <option>Neuquén</option>
-                                <option>Salta</option>
-                                <option>Santa Cruz</option>
-                                <option>Tucumán</option>
-                                <option>Tierra del Fuego</option>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label for="inputState">Sexo:</label>
-                              <select id="sexo" class="form-control" required>
-                                <option selected>Selecciona...</option>
-                                <option>Masculino</option>
-                                <option>Femenino</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group mt-3">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="terminos">
-                              <label class="form-check-label" for="gridCheck">
-                                <p style="font-size: small;" >Quiero recibir más información vía email sobre los ultimos lanzamientos y novedades
-                                </p>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="submit" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-outline-danger" onclick="valcontraseña()">Registrarse</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+            
               <form onsubmit="cargar(event)" id="login">
-              <li class="nav-item dropdown dropleft">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ingresar
-                </a>
-               
-                <div class="dropdown-menu bg-3 p-4 text-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">Email </label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="emailusuario"
-                      placeholder="email@example.com"
-                      />
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Contraseña</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="pass"
-                      placeholder="Password"
-                      />
-                  </div>
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="dropdownCheck"
-                        />
-                      <label class="form-check-label" for="dropdownCheck">
-                      Recordar mi contraseña?
-                      </label>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn btn-outline-danger" onclick="login()">Iniciar sesion</button>  
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" href="#">No tienes cuenta? Registrate</a>
-                </div>
+                <form onsubmit="cargar(event)" id="login">
+                    <li class="nav-item  ">
+                      <a class="nav-link  text-white" onclick="logOut()" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cerrar Sesion
+                      </a>
+                   
+                    </form>
               </form>
               </li>
             </ul>
@@ -363,10 +249,10 @@
         <ul class="list-unstyled">
           <li>
             <a id="linksfo" href="#!"   data-toggle="modal"
-            data-target="#exampleModal">Registrame</a>
+            data-target="#exampleModal">Contacto</a>
           </li>
           <li>
-            <a id="linksfo" href="#!">Ingresar</a>
+            <a id="linksfo" href="#!" onclick="logOut()">Cerrar Sesión</a>
           </li>
           <li>
             <a id="linksfo" href="#!">Estado de mi compra</a>
@@ -429,8 +315,8 @@
     crossorigin="anonymous"
   ></script>
   <script src="carrito.js"></script>
-  <script src="registrarse.js"></script>
   <script src="usuarios.js"></script>
+
 
 </body>
 

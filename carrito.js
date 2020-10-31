@@ -3,7 +3,7 @@ localStorage.clear();
 let libros = [
   {
     id: 1,
-    nombre: "Los guardianes",
+    nombre: "Los Guardianes",
     autor: "John Grisham",
     descripcion:
       "Un hombre inocente fue condenado por asesinato hace veintidós años. Su abogado no parará hasta verle libre",
@@ -14,7 +14,7 @@ let libros = [
   },
   {
     id: 2,
-    nombre: "Las tinieblas y el alba",
+    nombre: "Las Tinieblas y el Alba",
     autor: "Ken Follet",
     descripcion:
       "En Las tinieblas y el alba, Ken Follett embarca al lector en un épico viaje que termina en Los pilares de la Tierra comienza.",
@@ -36,7 +36,7 @@ let libros = [
   },
   {
     id: 4,
-    nombre: "La tia cosima",
+    nombre: "La tía Cósima",
     autor: "Florencia Bonelli",
     descripcion:
       "Cósima; un nombre para recordar. Una historia de cómo el amor vence al odio. La nueva novela de Florencia Bonelli; la escritora argentina más leída y admirada de América Latina ",
@@ -191,3 +191,23 @@ function addCarrito(index) {
   contador = storage.length;
   document.getElementById("contador").innerHTML = contador;
 }
+
+
+
+
+// let lista = document.getElementById("lista-carrito");
+// db.map(function (prod){
+// let prueba =
+// `
+// <td>
+// <img src="${prod.imagen}" width=100>
+// </td>
+// <td>${prod.nombre}</td>
+// <td>${prod.precio}</td>
+// <td>
+// <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
+// </td>
+// `;
+// lista.innerHTML +=prueba;
+// });
+
