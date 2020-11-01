@@ -24,15 +24,17 @@ let terminos = document.getElementById('terminos');
 function valcontraseña(){
 if(contraseña.value !== contraseñaconfirm.value){
     alert("La contraseña no coincide")
-    nombre.value = "";
-    apellido.value ="";
-    email.value = "";
-    contraseña.value ="";
-    opciones.value = "";
-    sexo.value = "";
 }
 else{
   alert("Te enviamos un correo para que actives tu cuenta!")
+   //limpiar campos 
+  nombre.value = "";
+  apellido.value ="";
+  email.value = "";
+  contraseña.value ="";
+  contraseñaconfirm.value ="";
+  opciones.value = "";
+  sexo.value = "";
 }
 }
 
@@ -40,16 +42,9 @@ else{
 function mostrar(event){  
  event.preventDefault() 
  let persona = new Usuarionuevo(nombre.value.toUpperCase(),apellido.value.toUpperCase(), email.value.toLowerCase(),contraseña.value, contraseñaconfirm.value, opciones.value,sexo.value,terminos.checked)
- //limpiar campos 
+
    console.log(persona)
- nombre.value = "";
- apellido.value ="";
- email.value = "";
- contraseña.value ="";
- contraseñaconfirm.value ="";
- opciones.value = "";
- sexo.value = "";
- 
+
  //agrego persona dentro de usuarios
  usuarios.push(persona);
  localStorage.setItem('usuarionuevo', JSON.stringify(usuarios))

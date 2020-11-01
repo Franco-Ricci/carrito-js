@@ -42,19 +42,19 @@ function login(){
   let logueo = false;
   let emailusuario = document.getElementById("emailusuario").value;
   let pass= document.getElementById("pass").value;
+  let Data = JSON.parse(localStorage.getItem("usuario"))
 
 //Validamos ingreso
 if( emailusuario === "admin@admin.com" && pass ==="admin"){
   alert("Acceso a admin")
   window.location = "admin.html"
-  logueo = true;
   
 }else if( emailusuario === "leean@imohff.com" && pass ==="1234"){
-  alert("Bienvenido Leean")
+  alert(`Bienvenido Leean`)
   window.location = "LogUsuario.html"
 }
 else if( emailusuario === "franco@ricci.com" && pass ==="1234"){
-  alert("Bienvenido Franco")
+  alert(`Bienvenido Franco`)
   window.location = "LogUsuario.html"
 
 }else if( emailusuario === "ale@paz.com" && pass ==="1234"){
@@ -68,12 +68,22 @@ else if( emailusuario === "franco@ricci.com" && pass ==="1234"){
 }else if( emailusuario === "matias@arguijo.com" && pass ==="1234"){
   alert("Bienvenido Matias")
   window.location = "LogUsuario.html"
-}else{
- 
+}
+else{
+  logueo=false
   alert("Usuario o contraseña incorrectos")
   limpiarCampos();
 }
 }
+function comprarProd(){
+  if(logueo = true){
+    alert("Gracias por su compra")
+  }else{   
+     alert("Debe iniciar sesion para comprar")
+
+  }
+}
+
 //preventdefault 
 function cargar(event){  
   event.preventDefault() 
@@ -85,9 +95,9 @@ function cargar(event){
   pass.value = "";
 } 
  
-
  const logOut = () => {
   
   alert("Sesión finalizada");
   window.location = "index.html";
 };
+

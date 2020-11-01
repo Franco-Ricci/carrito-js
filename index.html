@@ -177,7 +177,7 @@
     <!-- CARRITO -->
     <nav class="navbar sticky-top navbar-dark bg-dark" id="dropmenu">
       <a class="navbar-brand" href="index.html#inicio"><i class="fas fa-arrow-up"></i></a>
-      <p class="text-white" id="nombreuser"></p>
+      <p class="text-white" id="nombreUser"></p>
       <ul class="navbar-nav" id="positioncarrito">
         <li  class="nav-item " id="shoppingCart">
           <a type="nav-link img-fluid" class="btn btn-dark" data-toggle="modal"  data-target="#modalcarrito"><span class="sr-only">(current)</span>
@@ -201,18 +201,18 @@
           </div>
           <div class="modal-body">
             <div id="carrito"  >
-                <table id="lista-carrito" class="table">
-                    <thead>
-                        <tr>
-                          <tbody id="items">
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th></th>
-                        </tr>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                      </tr>
                     </thead>
-                    </tbody>
+                  </thead>
+                  <tbody id="lista-carrito">
+                    <!-- Cargamos productos al carrito -->
+                  </tbody>
                     <tfoot>
                       <tr text-align="rigth">
                           <th >Total $</th>

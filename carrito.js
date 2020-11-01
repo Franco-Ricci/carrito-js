@@ -168,7 +168,7 @@ librosNov.map(function (prod) {
 ​
       <div class="row">
         <div class="col px-0 ml-0 trans text-center">
-          <button type="submit"  class="btn btn btn-outline-danger">Comprar</button> 
+          <button type="submit" class="btn btn btn-outline-danger" onclick='comprarProd()'>Comprar</button> 
           <button type="submit" class="btn btn-outline-success" onclick='addCarrito(${prod.id})'>Añadir a carrito</button>  
         </div>
       </div>
@@ -187,27 +187,39 @@ function addCarrito(index) {
   console.log(producto);
   let storage = JSON.parse(localStorage.getItem("carrito")) || []; //si no existe la clave me devuelva un arreglo vacio
   storage.push(producto);
+  const carrito = storage.map(
+    (prod) => `
+  <table>
+  <tbody>
+   <td>
+   <img src="${prod.imagen}" width=100>
+   </td>
+   <td>${prod.nombre}</td>
+   <td>${prod.precio}</td>
+   <td>
+   <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
+   </td>
+   </tbody>
+   </table>
+   `
+  );
+  document.getElementById("lista-carrito").innerHTML = carrito.join("");
   localStorage.setItem("carrito", JSON.stringify(storage));
   contador = storage.length;
   document.getElementById("contador").innerHTML = contador;
 }
 
+// let Vaciar = document.getElementById('vaciar-carrito');
+// Vaciar.addEventListener('click', vaciarCarrito);
+// function vaciarCarrito() {
+// 	if (confirm("estas seguro?")) {
+// 		producto = [];
+// 		contador = 0;
+// 		carrito = [];
+// 		addCarrito();
+// 	} 
+// }; // fin vaciarCarrito
 
 
 
-// let lista = document.getElementById("lista-carrito");
-// db.map(function (prod){
-// let prueba =
-// `
-// <td>
-// <img src="${prod.imagen}" width=100>
-// </td>
-// <td>${prod.nombre}</td>
-// <td>${prod.precio}</td>
-// <td>
-// <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
-// </td>
-// `;
-// lista.innerHTML +=prueba;
-// });
 
