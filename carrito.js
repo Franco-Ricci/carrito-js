@@ -190,36 +190,48 @@ function addCarrito(index) {
   const carrito = storage.map(
     (prod) => `
   <table>
-  <tbody>
-   <td>
-   <img src="${prod.imagen}" width=100>
-   </td>
-   <td>${prod.nombre}</td>
-   <td>${prod.precio}</td>
-   <td>
-   <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
-   </td>
-   </tbody>
+    <tbody>
+      <td>
+       <img src="${prod.imagen}" width=100>
+      </td>
+      <td>${prod.nombre}</td>
+      <td>${prod.precio}</td>
+      <td>
+       <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
+      </td>
+    </tbody>
    </table>
    `
   );
-  document.getElementById("lista-carrito").innerHTML = carrito.join("");
+  document.getElementById("lista-carrito").innerHTML = carrito;
   localStorage.setItem("carrito", JSON.stringify(storage));
   contador = storage.length;
   document.getElementById("contador").innerHTML = contador;
 }
 
-// let Vaciar = document.getElementById('vaciar-carrito');
-// Vaciar.addEventListener('click', vaciarCarrito);
-// function vaciarCarrito() {
-// 	if (confirm("estas seguro?")) {
-// 		producto = [];
-// 		contador = 0;
-// 		carrito = [];
-// 		addCarrito();
-// 	} 
-// }; // fin vaciarCarrito
+
+//Vaciar carrito agregado por pablo
+function vaciarCarrito() {
+  if (confirm("Estas seguro que desea vaciar el carrito?")) {
+    producto = [];
+    contador = 0;
+    carrito = [];
+    document.getElementById("lista-carrito").innerHTML = carrito;
+    document.getElementById("contador").innerHTML = contador;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }
+}
 
 
-
-
+//Suscribirse a las ultimas publicaciones
+function suscribete(){
+  let mailsusc = document.getElementById("emailSusc").value
+  if(mailsusc === ""){
+    alert("Debe ingresar su email")
+  }else{
+  document.getElementById("suscribete").innerHTML 
+  = `  <div  class="alert alert-primary mt-2" role="alert">
+  Gracias por suscribirte!          
+  </div>`
+}
+}
