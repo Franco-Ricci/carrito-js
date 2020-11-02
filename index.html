@@ -224,7 +224,7 @@
           
           </div>
           <div class="modal-footer">
-            <a id="vaciar-carrito" class="btn btn-danger btn-block" >Vaciar</a>  
+            <a class="btn btn-danger btn-block" onclick="vaciarCarrito()" >Vaciar</a>  
             <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
               Compra</a>
           </div>
@@ -317,15 +317,21 @@
   <section id="contacto" class="py-4 mt-3">
     <div class="container text-center">
       <h4>Suscríbete para recibir las últimas publicaciones!</h4>
-      <form>
+      <form onsubmit="cargar(event)">
+        
         <div class="form-row">
+         
           <div class="form-group offset offset-md-3 col-md-6 text-center">
+           
             <label for="inputEmail4"></label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="example@gmail.com">
+            <input type="email" class="form-control" id="emailSusc" placeholder="example@gmail.com" required>
+            <div id="suscribete">
+             
+            </div>
           </div>
         </div>
         <div class="row m-0 justify-content-center">
-          <button type="submit" class="btn btn-danger bg-1">Enviar</button>
+          <button type="submit" onclick="suscribete()" class="btn btn-danger bg-1">Enviar</button>
         </div>
       </form>
     </div>
