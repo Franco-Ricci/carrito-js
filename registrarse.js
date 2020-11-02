@@ -23,8 +23,11 @@ let terminos = document.getElementById('terminos');
 //validacion de contraseña
 function valcontraseña(){
 if(contraseña.value !== contraseñaconfirm.value){
-    alert("La contraseña no coincide")
+    alert("La contraseña no coincide");
+}if(nombre.value === "" || email.value ===""){
+  alert("Debe completar los campos");
 }
+
 else{
   alert("Te enviamos un correo para que actives tu cuenta!")
    //limpiar campos 
