@@ -34,7 +34,7 @@
                 <button class="btn btn-light my-2 my-sm-0 shadow mr-2" type="submit">Buscar</button>
               </form>
               <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Inicio</a>
+                <a class="nav-link text-white" href="LogUsuario.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="#librorec">Catalogo</a>
@@ -87,18 +87,18 @@
           </div>
           <div class="modal-body">
             <div id="carrito"  >
-                <table id="lista-carrito" class="table">
-                    <thead>
-                        <tr>
-                          <tbody id="items">
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th></th>
-                        </tr>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                      </tr>
                     </thead>
-                    </tbody>
+                  </thead>
+                  <tbody id="lista-carrito">
+                    <!-- Cargamos productos al carrito -->
+                  </tbody>
                     <tfoot>
                       <tr text-align="rigth">
                           <th >Total $</th>
@@ -110,7 +110,7 @@
           
           </div>
           <div class="modal-footer">
-            <a id="vaciar-carrito" class="btn btn-danger btn-block" >Vaciar</a>  
+            <a class="btn btn-danger btn-block" onclick="vaciarCarrito()" >Vaciar</a>  
             <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
               Compra</a>
           </div>
@@ -285,9 +285,9 @@
   <footer>
     <section id="nav" class="bg-1 p-2 mt-4">
      <nav class="nav d-flex container align-items-center justify-content-center">
-       <a class="nav-link" href="index.html#inicio">Inicio</a>
-       <a class="nav-link" href="index.html#librorec">Catalogo</a>
-       <a class="nav-link" href="index.html#libronov">Novedades</a>
+       <a class="nav-link" href="LogUsuario.html#inicio">Inicio</a>
+       <a class="nav-link" href="LogUsuario.html#librorec">Catalogo</a>
+       <a class="nav-link" href="LogUsuario.html#libronov">Novedades</a>
        <a class="nav-link" href=>Contacto</a>
      </nav>
    </section>
