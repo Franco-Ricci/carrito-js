@@ -37,13 +37,13 @@
                 <a class="nav-link text-white" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#librorec">Catalogo</a>
+                <a class="nav-link text-white btn-recomendados" >Catalogo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#libronov">Novedades</a>
+                <a class="nav-link text-white btn-novedades">Novedades</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white"data-toggle="modal" data-target="#exampleModal">Regístrate</a>
+                <a class="nav-link text-white registrate"data-toggle="modal" data-target="#exampleModal">Regístrate</a>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -124,7 +124,7 @@
                   </div>
                 </div>
               </li>
-              <form onsubmit="cargar(event)" id="login">
+              <form onsubmit="cargar(event)" id="login" class="button__login">
               <li class="nav-item dropdown dropleft">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Ingresar
@@ -176,7 +176,7 @@
 
     <!-- CARRITO -->
     <nav class="navbar sticky-top navbar-dark bg-dark" id="dropmenu">
-      <a class="navbar-brand" href="index.html#inicio"><i class="fas fa-arrow-up"></i></a>
+      
       <p class="text-white" id="nombreUser"></p>
       <ul class="navbar-nav" id="positioncarrito">
         <li  class="nav-item " id="shoppingCart">
@@ -195,7 +195,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="Carritomodal">Carrito de compras</h5>
-            <button type="button" onclick="mostrarCarrito" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -214,9 +214,10 @@
                     <!-- Cargamos productos al carrito -->
                   </tbody>
                     <tfoot>
-                      <tr text-align="rigth">
-                          <th >Total $</th>
-                          <td id="totales"> </td>
+                      <tr>
+                        <th class="text-right" colspan="2">Total:</th>
+                        <td class="total" id="total">$0</td>
+                        
                       </tr>
                   </tfoot>
                 </table>
@@ -225,7 +226,7 @@
           </div>
           <div class="modal-footer">
             <a class="btn btn-danger btn-block" onclick="vaciarCarrito()" >Vaciar</a>  
-            <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+            <a href="#" id="procesar-compra" class="btn btn-danger btn-block"onclick="validarCompra()">Procesar
               Compra</a>
           </div>
         </div>
@@ -309,7 +310,7 @@
     </div>
   </div>
 </div>
-
+<span class="ir-arriba" href="index.html#inicio"><i class="fas fa-arrow-up"></i></span>
 </section>
 
 <!-- SECCION SUSCRIBIRSE -->
@@ -345,7 +346,7 @@
     <div class="row">
       <div class="col-md-4 mx-auto mt-4">
         <img src="images/logo.png" style="width: 50%;" alt="Logo Bradbury">
-      <p class="mt-3">Somos un grupo de estudiantes de la comision 3i de RollingCode School </p>
+      <p class="mt-3">Proyecto hecho en javascript para RollingCode School </p>
       </div>
       <hr class="clearfix w-100 d-md-none">
       <div class="col-md-2 mx-auto">
@@ -406,15 +407,15 @@
     <section id="nav" class="bg-1 p-2 mt-4">
      <nav class="nav d-flex container align-items-center justify-content-center">
        <a class="nav-link" href="index.html#inicio">Inicio</a>
-       <a class="nav-link" href="index.html#librorec">Catalogo</a>
-       <a class="nav-link" href="index.html#libronov">Novedades</a>
+       <a class="nav-link btn-recomendados" >Catalogo</a>
+       <a class="nav-link btn-novedades" >Novedades</a>
        <a class="nav-link" href=>Contacto</a>
      </nav>
    </section>
    <!-- FIRMA -->
    </footer>
   <section id="firma" class="p-1">
-    <h6 class="text-center m-0 text-light">Desarrollado por Macedonia</h6>
+    <h6 class="text-center m-0 text-light">Desarrollado por Franco Ricci</h6>
   </section>
 </footer>
 </section>
@@ -434,9 +435,11 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"
   ></script>
-  <script src="carrito.js"></script>
-  <script src="registrarse.js"></script>
-  <script src="usuarios.js"></script>
+  <script src="JS/carrito.js"></script>
+  <script src="JS/registrarse.js"></script>
+  <script src="JS/usuarios.js"></script>
+
+
 
 </body>
 
