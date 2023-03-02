@@ -1,6 +1,5 @@
-localStorage.clear();
 //Agregamos libros en la seccion recomendados
-let libros = [
+let libros = JSON.parse(localStorage.getItem("productos")) || [
   {
     id: 1,
     nombre: "Los Guardianes",
@@ -101,9 +100,7 @@ let db = JSON.parse(localStorage.getItem("productos"));
 //--------------------------------------------------------------
 //Filtrar libros recomendados
 let tarjetas = document.getElementById("tarjetasRec");
-// let librosrec = libros.filter(function (rec) {
-//     return rec.recomendados;
-//   });
+
 let librosrec = db.filter((item) => {
   return item.recomendados === true;
 });
@@ -125,14 +122,14 @@ librosrec.map(function (prod) {
       <div class="text-center mb-1">
         <p style="text-align:left"> ${prod.descripcion} </p>
       </div>
-      <span class="h2 text-center">$${prod.precio}</span>
+     
 ​
-      <div class="row">
-        <div class="col px-0 ml-0 trans text-center">
-          <button type="submit"  class="btn btn btn-outline-danger">Comprar</button> 
-          <button type="submit" class="btn btn-outline-success" onclick='addCarrito(${prod.id})'>Añadir a carrito</button>  
-        </div>
-      </div>
+<div class="col flex-fill d-flex align-items-end">
+<div class="col px-0 ml-0 trans text-center  card-lib">
+<span class="h2 text-center">$${prod.precio}</span>
+  <button type="submit" class="btn btn-outline-success mt-3" onclick='addCarrito(${prod.id})'>Añadir a carrito</button>  
+</div>
+</div>
     </div>
   </div>
 </div>
@@ -142,9 +139,7 @@ librosrec.map(function (prod) {
 //--------------------------------------------------------------
 //Filtrar libros Novedades
 let tarjetasNov = document.getElementById("tarjetasNov");
-// let librosNov = libros.filter(function (nov) {
-//   return nov.novedades;
-// });
+
 let librosNov = db.filter((item) => {
   return item.novedades === true;
 });
@@ -164,12 +159,12 @@ librosNov.map(function (prod) {
       <div class="text-center mb-1">
         <p style="text-align:left"> ${prod.descripcion} </p>
       </div>
-      <span class="h2 text-center">$${prod.precio}</span>
+    
 ​
-      <div class="row">
-        <div class="col px-0 ml-0 trans text-center">
-          <button type="submit" class="btn btn btn-outline-danger" onclick='comprarProd()'>Comprar</button> 
-          <button type="submit" class="btn btn-outline-success" onclick='addCarrito(${prod.id})'>Añadir a carrito</button>  
+<div class="col flex-fill d-flex align-items-end">
+        <div class="col px-0 ml-0 trans text-center  card-lib">
+        <span class="h2 text-center">$${prod.precio}</span>
+          <button type="submit" class="btn btn-outline-success mt-3" onclick='addCarrito(${prod.id})'>Añadir a carrito</button>  
         </div>
       </div>
     </div>
@@ -178,60 +173,152 @@ librosNov.map(function (prod) {
 </div>`;
   tarjetasNov.innerHTML += card;
 });
+
+localStorage.removeItem("carrito");
+let total = document.querySelector(".total");
+let Sumatotal;
 function addCarrito(index) {
+  let storage = JSON.parse(localStorage.getItem("carrito")) || [];
   let buscar = db.find((item) => {
     return item.id === index;
   });
-  let producto = buscar;
-  // let producto = db[index];
-  console.log(producto);
-  let storage = JSON.parse(localStorage.getItem("carrito")) || []; //si no existe la clave me devuelva un arreglo vacio
-  storage.push(producto);
-  const carrito = storage.map(
-    (prod) => `
-  <table>
-    <tbody>
-      <td>
-       <img src="${prod.imagen}" width=100>
-      </td>
-      <td>${prod.nombre}</td>
-      <td>${prod.precio}</td>
-      <td>
-       <a href="#" class="borrar-producto fas fa-times-circle" data-id="${prod.id}"></a>
-      </td>
-    </tbody>
-   </table>
-   `
-  );
-  document.getElementById("lista-carrito").innerHTML = carrito;
-  localStorage.setItem("carrito", JSON.stringify(storage));
+
+  let showMod = document.getElementById("lista-carrito");
+
+  console.log(showMod);
+
+  let check = storage.findIndex((libro) => libro.id == index);
+  // storage.findIndex(item => item.id == index)
+  console.log(check);
+  if (check < 0) {
+    console.log(buscar);
+    storage.push(buscar);
+    let cardl = ` 
+    <table>
+       <tbody class="card-prod">
+       <td>
+          <img src="${buscar.imagen}" width=100>
+         </td>
+         <td>${buscar.nombre}</td>
+         <td id="prec">$${buscar.precio}</td>
+         <td>
+          <a href="#" class="borrar-producto fas fa-times-circle" data-id="${buscar.id}"></a>
+       </td>
+       </tbody>
+      </table>
+      `;
+    console.log(typeof buscar.precio);
+    showMod.innerHTML += cardl;
+
+    //borrar del carrito el libro seleccionado y reajusta el precio total
+    let borrarPro = document.querySelectorAll(".borrar-producto");
+
+    for (let i = 0; i < borrarPro.length; i++) {
+      borrarPro[i].addEventListener("click", () => {
+        let productId = borrarPro[i].getAttribute("data-id");
+        console.log(storage.length);
+        // remuevo el libro del dom
+        borrarPro[i].parentNode.parentNode.remove();
+        console.log(storage);
+        console.log(productId);
+        // busco el index del storage
+        let Pindex = storage.findIndex(
+          (product) => product.id === parseInt(productId)
+        );
+        console.log(Pindex);
+        console.log(productId);
+
+        //tomo el precio del item
+        let fprice = storage[Pindex].precio;
+        // remuevo el producto del localstorage
+        storage.splice(Pindex, 1);
+        console.log(storage);
+
+        console.log(fprice);
+        Sumatotal -= fprice;
+
+        //actualizo el precio total y los datos guardados en ls
+        total.innerHTML = `$${Sumatotal}`;
+        localStorage.setItem("carrito", JSON.stringify(storage));
+        contador = storage.length;
+        document.getElementById("contador").innerHTML = contador;
+      });
+    }
+  } else {
+    console.log("repetido");
+  }
+
+  actualizarTotal(storage);
+  console.log(storage.length);
+
   contador = storage.length;
   document.getElementById("contador").innerHTML = contador;
+  localStorage.setItem("carrito", JSON.stringify(storage));
 }
 
+function actualizarTotal(storage) {
+  let suma = 0;
+
+  //Dos formas de realizar la suma total con el metodo reduce o usando for
+  Sumatotal = parseInt(storage.reduce((sum, value) => sum + value.precio, 0));
+  console.log(Sumatotal);
+  for (let i = 0; i < storage.length; i++) {
+    console.log(storage[i].precio);
+    suma += storage[i].precio;
+    console.log(suma);
+  }
+  // document.querySelector(".total").innerHTML = "Total: $"+ Sumatotal
+  total.innerHTML = "$" + Sumatotal;
+}
 
 //Vaciar carrito agregado por pablo
 function vaciarCarrito() {
-  if (confirm("Estas seguro que desea vaciar el carrito?")) {
-    producto = [];
-    contador = 0;
-    carrito = [];
-    document.getElementById("lista-carrito").innerHTML = carrito;
-    document.getElementById("contador").innerHTML = contador;
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+  productos = [];
+  contador = 0;
+  carrito = [];
+  document.getElementById("lista-carrito").innerHTML = carrito;
+  document.getElementById("contador").innerHTML = contador;
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  document.querySelector(".total").innerHTML = "$0";
+}
+
+//botones de desplazamiento
+let buttonUp = document.querySelector(".ir-arriba");
+buttonUp.addEventListener("click", scrollUp);
+
+function scrollUp() {
+  let currentScroll = document.documentElement.scrollTop;
+  if (currentScroll > 0) {
+    window.requestAnimationFrame(scrollUp);
+    window.scrollTo(40, currentScroll - currentScroll / 7);
   }
 }
 
+window.onscroll = function () {
+  let scroll = document.documentElement.scrollTop;
+  console.log(scroll);
 
-//Suscribirse a las ultimas publicaciones
-function suscribete(){
-  let mailsusc = document.getElementById("emailSusc").value
-  if(mailsusc === ""){
-    alert("Debe ingresar su email")
-  }else{
-  document.getElementById("suscribete").innerHTML 
-  = `  <div  class="alert alert-primary mt-2" role="alert">
-  Gracias por suscribirte!          
-  </div>`
-}
-}
+  if (scroll > 100) {
+    buttonUp.style.transform = "scale(1)";
+  } else if (scroll < 100) {
+    buttonUp.style.transform = "scale(0)";
+  }
+};
+
+//scroll hacia las categorias de libros
+const btnNovedades = document.querySelectorAll(".btn-novedades");
+const btnRecomendados = document.querySelectorAll(".btn-recomendados");
+const sectionNovedades = document.getElementById("libronov");
+const sectionRecomendados = document.getElementById("librorec");
+
+btnNovedades.forEach((e) => {
+  e.addEventListener("click", () => {
+    sectionNovedades.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+btnRecomendados.forEach((e) => {
+  e.addEventListener("click", () => {
+    sectionRecomendados.scrollIntoView({ behavior: "smooth" });
+  });
+});
