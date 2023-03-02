@@ -87,7 +87,7 @@ function login() {
 
     localStorage.setItem("logueo", "true");
 
-    window.location = "./html/admin.html";
+    window.location = "../html/admin.html";
     console.log(logueo);
     cerrar();
   } else if (listUser) {
@@ -118,7 +118,7 @@ function noAcceso() {
   console.log(pagina);
 
   if (pagina === "/html/admin.html" && val !== "true") {
-    location = "/index.html";
+    location = "../index.html";
     console.log(val);
   }
 }
@@ -152,7 +152,7 @@ function limpiarCampos() {
 const logOut = () => {
   localStorage.setItem("logueo", "false");
   alert("Sesión finalizada");
-  window.location = "/index.html";
+  window.location = "../index.html";
 };
 
 // cargarData();
