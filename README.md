@@ -1,5 +1,5 @@
 # LIBRERIA BRADBURY
-**Proyecto carrito de comproas JS**
+**Proyecto carrito de compras JS**
 
 ## Objetivos
  Proyecto de una libreria digital en una aplicación web que gestione el contenido de la misma haciendo uso de localStorage, realizadas las siguientes tareas con sus caracerísticas:
