@@ -8,9 +8,6 @@
 background-color:  rgb(248,249,250);;
  }
 
-html{
-  
-}
 .ancla::before{
 display: block;
 content: "";
