@@ -87,7 +87,7 @@ function login() {
 
     localStorage.setItem("logueo", "true");
 
-    window.location = "../html/admin.html";
+    window.location = "/html/admin.html";
     console.log(logueo);
     cerrar();
   } else if (listUser) {
