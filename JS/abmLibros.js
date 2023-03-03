@@ -150,7 +150,7 @@ const mostrarLibros = (index) => {
   });
   let imgSrc = LibrosDesc.imagen.startsWith("http")
     ? LibrosDesc.imagen
-    : `/${LibrosDesc.imagen}`;
+    : `../${LibrosDesc.imagen}`;
 
   let contenido = `
             
