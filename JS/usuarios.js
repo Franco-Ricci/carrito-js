@@ -93,6 +93,7 @@ function login() {
   } else if (listUser) {
     console.log(listUser);
     alert(`bienvenido ${listUser.nombre}${listUser.apellido}`);
+    document.querySelector(".registrate").style.display ="none"
     logueo = true;
     cerrar();
   } else {
@@ -117,7 +118,7 @@ let val = localStorage.getItem("logueo");
 function noAcceso() {
   console.log(pagina);
 
-  if (pagina === "/html/admin.html" && val !== "true") {
+  if (pagina === "/carrito-js/html/admin.html" && val !== "true") {
     location = "./index.html";
     console.log(val);
   }
@@ -152,7 +153,7 @@ function limpiarCampos() {
 const logOut = () => {
   localStorage.setItem("logueo", "false");
   alert("Sesión finalizada");
-  window.location = "../index.html";
+  window.location = "/carrito-js/index.html";
 };
 
 // cargarData();
