@@ -195,7 +195,7 @@ const mostrarLibros = (index) => {
                 </div> 
                 <div class="form-group">
                 <label>Cambiar portada</label>
-                <input type="url" class="form-control" id="portada" required>
+                <input type="url" class="form-control" id="portada" required placeholder="Ingrese url img">
               </div>
                 <div class="modal-footer">
                   <button  onclick="updateLibro()" data-dismiss="modal" class="btn btn-primary">
@@ -234,19 +234,19 @@ function agregarNuevoLibro() {
     </div>
     <div class="form-group">
       <label>Nombre</label>
-      <input type="text" class="form-control" id="nombre" required >
+      <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre libro" required >
     </div>
     <div class="form-group">
     <label>Autor</label>
-    <input type="text" class="form-control" id="autor" required>
+    <input type="text" class="form-control" id="autor" placeholder="Ingrese autor" required >
   </div>
     <div class="form-group">
       <label>Descripción</label>
-      <input type="text" class="form-control" id="descripcion"  required>
+      <input type="text" class="form-control" id="descripcion" placeholder="Ingrese descripción"  required>
     </div>
     <div class="form-group">
     <label>Precio</label>
-    <input type="number" class="form-control" id="precio" required >
+    <input type="number" class="form-control" id="precio" placeholder="Ingrese precio" required >
   </div>
   <div>
   <div>Categoria</div>
@@ -259,7 +259,7 @@ function agregarNuevoLibro() {
   
     <div class="form-group">
       <label>Portada</label>
-      <input type="url" class="form-control" id="portada">
+      <input type="url" class="form-control" id="portada" placeholder="Ingrese url img">
     </div>
     <div class="modal-footer">
       <button type="submit" onclick="newLibroData()" data-dismiss="modal" class="btn btn-primary">
@@ -283,16 +283,19 @@ function newLibroData() {
   let recomendados = document.getElementById("recomendado").checked;
   let novedades = document.getElementById("novedades").checked;
   let traerLibro = JSON.parse(localStorage.getItem("productos")) || [];
+  const urlPattern = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
 
   console.log(imagen.value);
   console.log(imagen);
+
+  const checkImgUrl = (urlPattern.test(imagen));
   if (
     nombre.length >= 3 &&
     nombre != "" &&
     autor.length >= 3 &&
     descripcion != "" &&
     precio > 0 &&
-    imagen != ""
+    checkImgUrl 
   ) {
     const newLog = {
       id,

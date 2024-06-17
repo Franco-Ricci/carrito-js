@@ -82,7 +82,7 @@ function login() {
   );
 
   //Validamos ingreso
-  if (emailusuario === "admin@admin.com" && pass === "admin") {
+  if (emailusuario === "admin" && pass === "admin") {
     alert("Acceso a admin");
 
     localStorage.setItem("logueo", "true");

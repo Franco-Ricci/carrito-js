@@ -90,12 +90,11 @@ let libros = JSON.parse(localStorage.getItem("productos")) || [
   },
 ];
 //----Creacion de data de productos, carrito, contador-------
-let productos = libros;
 let carrito = [];
 let contador = 0;
 let shoppingCartRec = document.getElementById("shoppingCart");
 document.getElementById("contador").innerHTML = contador;
-localStorage.setItem("productos", JSON.stringify(productos));
+localStorage.setItem("productos", JSON.stringify(libros));
 let db = JSON.parse(localStorage.getItem("productos"));
 //--------------------------------------------------------------
 //Filtrar libros recomendados
@@ -247,7 +246,7 @@ function addCarrito(index) {
   } else {
     console.log("repetido");
   }
-
+  console.log(storage)
   actualizarTotal(storage);
   console.log(storage.length);
 
@@ -296,8 +295,6 @@ function scrollUp() {
 
 window.onscroll = function () {
   let scroll = document.documentElement.scrollTop;
-  console.log(scroll);
-
   if (scroll > 100) {
     buttonUp.style.transform = "scale(1)";
   } else if (scroll < 100) {
